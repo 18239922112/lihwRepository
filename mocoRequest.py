@@ -120,6 +120,21 @@ def queryAll():
     return jsonify(query_all)
 
 
+@app.route('/moco/queryLike',methods=['POST'])
+def queryLike():
+    data = request.json
+
+    apipath = data["apipath"]
+
+    sql = "select  * from apitest  where apipath like %s order by id desc limit 0,10;"
+
+    query_result = connect_mysql(sql,params=('%' + apipath + '%'))
+
+    query_all = mysqlAllResult(query_result)
+    return jsonify(query_all)
+
+
+
 @app.route('/moco/queryApi',methods=['POST'])
 def queryApi():
     data = request.json

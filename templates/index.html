@@ -23,6 +23,10 @@
             width: 200px;
             height: 50px;
         }
+        #queryLike{
+            width: 180px;
+            height: 45px;
+        }
         #tj {
             display: flex;
             justify-content: space-between;
@@ -80,6 +84,8 @@
     <div class="">
         <button type="button" id="list">列表</button>
         <button type="button" id="add">新增</button>
+        <label for="name">搜索API路径:</label>
+        <input id="queryLike">
     </div>
     <div id="istrue">
         <h2 id="delneirong">确定删除</h2>
@@ -665,6 +671,42 @@
 				}
 			});
 
+            $('#queryLike').on('input', function() {
+                var apipath = $(this).val().trim();
+                var dataToSend = {
+                        "apipath": apipath
+                    };
+                $.ajax({
+                    url: "/moco/queryLike",
+                    type: "POST",
+                    data: JSON.stringify(dataToSend),
+                    contentType: "application/json",
+                    success: function(data) {
+						// 清空表格内容
+						$("#data-table-body").empty();
+						// 填充数据到表格
+						//注意这里返回的数据是json格式在foreach时必须加data.success.foreach，不然会报错
+						data.success.forEach(function(item) {
+							var row = "<tr>";
+							row += "<td>" + item.apimame + "</td>";
+							row += "<td>" + item.apipath + "</td>";
+							row += "<td>" + (item.isenable === 0 ? "是" : "否") + "</td>";
+							row += "<td class='action-bar'>"; // 开始操作栏单元格
+							// 添加编辑和删除按钮
+							row += "<button class='edit-btn'>编辑</button>";
+							row += "<button class='delete-btn'>删除</button>";
+
+							row += "</td>"; // 结束操作栏单元格
+							row += "</tr>";
+							$('#data-table tbody').append(row);
+
+						});
+                    },
+                    error: function() {
+                        alert("服务端错误");
+                    }
+                });
+            });
 
 
 

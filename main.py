@@ -10,7 +10,7 @@ ip = get_local_ip()
 
 if __name__ == '__main__':
     mocodata = readConfig(confname='moco')
-    app.run(host='0.0.0.0',port=mocodata['port'],debug=True)
+    app.run(host='0.0.0.0',port=mocodata['port'],debug=False)
 
     log.info(log.info("程序入口为:"+"http://"+ip+":9090/moco"))
 
