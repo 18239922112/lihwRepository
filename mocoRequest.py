@@ -27,6 +27,21 @@ def get_local_ip():
     ip_address = socket.gethostbyname(hostname)
     return ip_address
 
+@app.before_request
+def get_call_ip():
+    '''
+    获取调用者的ip
+    :return:
+    '''
+    # 尝试获取 X-Forwarded-For 头部中的 IP 地址
+    if 'X-Forwarded-For' in request.headers:
+        # 使用nginx部署的时候需要通过这种方式获取真实的客户端ip，不然的话返回的就是代理服务器的地址就不正确了
+        client_ip = request.headers['X-Forwarded-For'].split(',')[0].strip()  # 取第一个 IP 并去除空格
+    else:
+        client_ip = request.remote_addr
+    log.info('请求来自于' + client_ip)
+
+
 @app.route('/moco')
 def index():
     return render_template('index.html')
@@ -172,3 +187,4 @@ def queryCount():
 
     count = connect_mysql(sql)
     return jsonify({"count":count})
+
