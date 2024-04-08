@@ -87,6 +87,7 @@
         <button type="button" id="add">新增</button>
         <label for="name">搜索API路径:</label>
         <input id="queryLike">
+        <button onclick="window.location.href = '/x2e'">X2E转换</button>
     </div>
     <div id="istrue">
         <h2 id="delneirong">确定删除</h2>
@@ -137,6 +138,17 @@
     <script src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
+            //跳转至x2e页面
+            $("#x2e").click(function() {
+                $.ajax({
+                        url: '/moco/x2e',
+                        type: 'GET',
+                        success: function(response) {
+                        },
+                        error: function(error) {
+                        }
+                    });
+            });
             //新增打开表单
             $("#add").click(function() {
                 $("#myModal").show();
