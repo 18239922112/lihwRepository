@@ -9,13 +9,13 @@
 
 from flask import Flask, request, jsonify, render_template
 from conncetMysql import connect_mysql, mysqlResult, mysqlAllResult
-from makeLog import logger
+from makeLog import Logger
 import socket
 
 
 app = Flask(__name__,static_url_path='/static')
 
-log = logger()
+log = Logger()
 
 
 def get_local_ip():

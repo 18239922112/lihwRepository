@@ -8,9 +8,9 @@
 import pymysql
 import base64
 from readConf import readConfig
-from makeLog import logger
+from makeLog import Logger
 
-log = logger()
+log = Logger()
 
 def connect_mysql(sqlp,params=None):
     """

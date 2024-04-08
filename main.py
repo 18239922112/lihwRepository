@@ -1,9 +1,9 @@
 
 from mocoRequest import app, get_local_ip
 from readConf import readConfig
-from makeLog import logger
+from makeLog import Logger
 
-log = logger()
+log = Logger()
 ip = get_local_ip()
 
 
