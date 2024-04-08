@@ -3,7 +3,6 @@ from mocoRequest import app, get_local_ip
 from readConf import readConfig
 from makeLog import logger
 
-
 log = logger()
 ip = get_local_ip()
 
