@@ -8,34 +8,26 @@
 import logging
 import os
 
-class logger():
+class Logger():
     # 配置日志记录器
-    def __init__(self,level=logging.DEBUG):
-        self.logger = logging.getLogger()
-        self.logger.setLevel(level)
-        #获取当前脚本的绝对路径
-        log_dir = os.path.abspath('./log')
-        if not os.path.exists(log_dir):
-            try:
-                os.mkdir(log_dir)
-                if os.path.exists('./log/moco.log'):
-                    pass
-                else:
-                    try:
-                        with open('./log/moco.log', 'a+',encoding='utf-8') as file:
-                            pass
-                    except IOError as e:
-                        pass
-            except OSError as e:
-                pass
-        else:
-            pass
-        formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s",datefmt='%Y-%m-%d %H:%M:%S')
+    _instance = None
 
-        file_handler = logging.FileHandler(filename="./log/moco.log", encoding='utf-8', mode='a+')
-        file_handler.setFormatter(formatter)
+    def __new__(cls, level=logging.DEBUG):
+        if cls._instance is None:
+            cls._instance = super(Logger, cls).__new__(cls)
+            cls._instance.logger = logging.getLogger()
+            cls._instance.logger.setLevel(level)
 
-        self.logger.addHandler(file_handler)
+            log_dir = os.path.abspath('./log')
+            if not os.path.exists(log_dir):
+                os.makedirs(log_dir)
+
+            formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s", datefmt='%Y-%m-%d %H:%M:%S')
+            file_handler = logging.FileHandler(filename="./log/x2e.log", encoding='utf-8', mode='a+')
+            file_handler.setFormatter(formatter)
+            cls._instance.logger.addHandler(file_handler)
+
+        return cls._instance
 
 
     def debug(self,msg):
