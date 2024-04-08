@@ -23,7 +23,7 @@ class Logger():
                 os.makedirs(log_dir)
 
             formatter = logging.Formatter("%(asctime)s [%(levelname)s] %(message)s", datefmt='%Y-%m-%d %H:%M:%S')
-            file_handler = logging.FileHandler(filename="./log/x2e.log", encoding='utf-8', mode='a+')
+            file_handler = logging.FileHandler(filename="./log/moco.log", encoding='utf-8', mode='a+')
             file_handler.setFormatter(formatter)
             cls._instance.logger.addHandler(file_handler)
 
