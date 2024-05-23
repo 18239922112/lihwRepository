@@ -5,7 +5,7 @@
 @File ：mocoRequest.py
 @IDE ：PyCharm
 """
-
+import json
 
 from flask import Flask, request, jsonify, render_template
 from conncetMysql import connect_mysql, mysqlResult, mysqlAllResult
@@ -118,7 +118,11 @@ def mocoServer(apipath):
     if query_result:
         apitext,isEnable = mysqlResult(query_result)
         if isEnable == 0:
-            return jsonify(apitext)
+            try:
+                return json.loads(apitext)
+            except Exception as e:
+                log.error(e)
+                return jsonify({"code":"500","msg":f"请检查你的接口数据格式是否正确"})
         else:
             log.info('%s此接口已停用'%apipath)
             return jsonify({"code":"500","msg":"此接口已停用"})
