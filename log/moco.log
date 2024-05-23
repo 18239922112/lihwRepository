@@ -1,0 +1,120 @@
+2024-05-23 14:28:08 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:28:08 [INFO] {'type': '1', 'name': 'ha11ha'}
+2024-05-23 14:28:08 [INFO] 127.0.0.1 - - [23/May/2024 14:28:08] "POST /api/test1 HTTP/1.1" 200 -
+2024-05-23 14:28:30 [INFO] 程序入口为:http://10.28.179.81:9090/moco
+2024-05-23 14:28:30 [INFO] None
+2024-05-23 14:36:28 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://10.28.179.81:9090
+2024-05-23 14:36:28 [INFO] [33mPress CTRL+C to quit[0m
+2024-05-23 14:36:39 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:36:39 [INFO] 127.0.0.1 - - [23/May/2024 14:36:39] "POST /api/test1 HTTP/1.1" 200 -
+2024-05-23 14:36:40 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:36:40 [INFO] 127.0.0.1 - - [23/May/2024 14:36:40] "POST /api/test1 HTTP/1.1" 200 -
+2024-05-23 14:36:41 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:36:41 [INFO] 127.0.0.1 - - [23/May/2024 14:36:41] "POST /api/test1 HTTP/1.1" 200 -
+2024-05-23 14:36:45 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:36:45 [INFO] 127.0.0.1 - - [23/May/2024 14:36:45] "POST /api/test1 HTTP/1.1" 200 -
+2024-05-23 14:37:26 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:37:26 [INFO] 添加接口成功,路径为：/getUserName
+2024-05-23 14:37:26 [INFO] 127.0.0.1 - - [23/May/2024 14:37:26] "POST /moco/addMoco HTTP/1.1" 200 -
+2024-05-23 14:37:27 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:37:27 [INFO] 127.0.0.1 - - [23/May/2024 14:37:27] "GET /moco/queryAll HTTP/1.1" 200 -
+2024-05-23 14:37:27 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:37:27 [INFO] 127.0.0.1 - - [23/May/2024 14:37:27] "GET /moco HTTP/1.1" 200 -
+2024-05-23 14:37:27 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:37:27 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:37:27 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:37:27 [INFO] 127.0.0.1 - - [23/May/2024 14:37:27] "GET /moco/queryCount HTTP/1.1" 200 -
+2024-05-23 14:37:27 [INFO] 127.0.0.1 - - [23/May/2024 14:37:27] "GET /moco/queryAll HTTP/1.1" 200 -
+2024-05-23 14:37:27 [INFO] 127.0.0.1 - - [23/May/2024 14:37:27] "[36mGET /static/image/moco.png HTTP/1.1[0m" 304 -
+2024-05-23 14:37:35 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:37:35 [ERROR] Exception on /getUserName [POST]
+Traceback (most recent call last):
+  File "D:\python\2\lib\site-packages\flask\app.py", line 1463, in wsgi_app
+    response = self.full_dispatch_request()
+  File "D:\python\2\lib\site-packages\flask\app.py", line 872, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "D:\python\2\lib\site-packages\flask\app.py", line 870, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "D:\python\2\lib\site-packages\flask\app.py", line 855, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "D:\git\3\mocoproject\mocoRequest.py", line 121, in mocoServer
+    return json.loads(apitext)
+  File "D:\python\2\lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+  File "D:\python\2\lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "D:\python\2\lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-05-23 14:37:35 [INFO] 127.0.0.1 - - [23/May/2024 14:37:35] "[35m[1mPOST /getUserName HTTP/1.1[0m" 500 -
+2024-05-23 14:37:48 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:37:48 [INFO] 127.0.0.1 - - [23/May/2024 14:37:48] "POST /moco/queryApi HTTP/1.1" 200 -
+2024-05-23 14:38:01 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:38:01 [INFO] 127.0.0.1 - - [23/May/2024 14:38:01] "POST /moco/editMoco HTTP/1.1" 200 -
+2024-05-23 14:38:02 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:38:02 [INFO] 127.0.0.1 - - [23/May/2024 14:38:02] "GET /moco/queryAll HTTP/1.1" 200 -
+2024-05-23 14:38:02 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:38:02 [INFO] 127.0.0.1 - - [23/May/2024 14:38:02] "GET /moco HTTP/1.1" 200 -
+2024-05-23 14:38:02 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:38:02 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:38:02 [INFO] 127.0.0.1 - - [23/May/2024 14:38:02] "GET /moco/queryCount HTTP/1.1" 200 -
+2024-05-23 14:38:02 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:38:02 [INFO] 127.0.0.1 - - [23/May/2024 14:38:02] "[36mGET /static/image/moco.png HTTP/1.1[0m" 304 -
+2024-05-23 14:38:02 [INFO] 127.0.0.1 - - [23/May/2024 14:38:02] "GET /moco/queryAll HTTP/1.1" 200 -
+2024-05-23 14:38:04 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:38:04 [INFO] 127.0.0.1 - - [23/May/2024 14:38:04] "POST /getUserName HTTP/1.1" 200 -
+2024-05-23 14:38:54 [INFO] 程序入口为:http://10.28.179.81:9090/moco
+2024-05-23 14:38:54 [INFO] None
+2024-05-23 14:42:50 [INFO] [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:9090
+ * Running on http://10.28.179.81:9090
+2024-05-23 14:42:50 [INFO] [33mPress CTRL+C to quit[0m
+2024-05-23 14:43:04 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:04 [INFO] 127.0.0.1 - - [23/May/2024 14:43:04] "GET /moco HTTP/1.1" 200 -
+2024-05-23 14:43:04 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:04 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:04 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:04 [INFO] 127.0.0.1 - - [23/May/2024 14:43:04] "GET /moco/queryCount HTTP/1.1" 200 -
+2024-05-23 14:43:04 [INFO] 127.0.0.1 - - [23/May/2024 14:43:04] "GET /moco/queryAll HTTP/1.1" 200 -
+2024-05-23 14:43:04 [INFO] 127.0.0.1 - - [23/May/2024 14:43:04] "[36mGET /static/image/moco.png HTTP/1.1[0m" 304 -
+2024-05-23 14:43:05 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:05 [INFO] 127.0.0.1 - - [23/May/2024 14:43:05] "POST /moco/queryApi HTTP/1.1" 200 -
+2024-05-23 14:43:21 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:21 [INFO] 127.0.0.1 - - [23/May/2024 14:43:21] "POST /moco/editMoco HTTP/1.1" 200 -
+2024-05-23 14:43:22 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:22 [INFO] 127.0.0.1 - - [23/May/2024 14:43:22] "GET /moco/queryAll HTTP/1.1" 200 -
+2024-05-23 14:43:22 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:22 [INFO] 127.0.0.1 - - [23/May/2024 14:43:22] "GET /moco HTTP/1.1" 200 -
+2024-05-23 14:43:22 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:22 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:22 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:22 [INFO] 127.0.0.1 - - [23/May/2024 14:43:22] "GET /moco/queryAll HTTP/1.1" 200 -
+2024-05-23 14:43:22 [INFO] 127.0.0.1 - - [23/May/2024 14:43:22] "[36mGET /static/image/moco.png HTTP/1.1[0m" 304 -
+2024-05-23 14:43:22 [INFO] 127.0.0.1 - - [23/May/2024 14:43:22] "GET /moco/queryCount HTTP/1.1" 200 -
+2024-05-23 14:43:25 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:25 [ERROR] Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-05-23 14:43:25 [INFO] 127.0.0.1 - - [23/May/2024 14:43:25] "POST /getUserName HTTP/1.1" 200 -
+2024-05-23 14:43:35 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:35 [INFO] 127.0.0.1 - - [23/May/2024 14:43:35] "POST /moco/queryApi HTTP/1.1" 200 -
+2024-05-23 14:43:43 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:43 [INFO] 127.0.0.1 - - [23/May/2024 14:43:43] "POST /moco/editMoco HTTP/1.1" 200 -
+2024-05-23 14:43:44 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:44 [INFO] 127.0.0.1 - - [23/May/2024 14:43:44] "GET /moco/queryAll HTTP/1.1" 200 -
+2024-05-23 14:43:44 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:44 [INFO] 127.0.0.1 - - [23/May/2024 14:43:44] "GET /moco HTTP/1.1" 200 -
+2024-05-23 14:43:44 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:44 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:44 [INFO] 127.0.0.1 - - [23/May/2024 14:43:44] "GET /moco/queryAll HTTP/1.1" 200 -
+2024-05-23 14:43:44 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:44 [INFO] 127.0.0.1 - - [23/May/2024 14:43:44] "[36mGET /static/image/moco.png HTTP/1.1[0m" 304 -
+2024-05-23 14:43:44 [INFO] 127.0.0.1 - - [23/May/2024 14:43:44] "GET /moco/queryCount HTTP/1.1" 200 -
+2024-05-23 14:43:46 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:43:46 [INFO] 127.0.0.1 - - [23/May/2024 14:43:46] "POST /getUserName HTTP/1.1" 200 -
+2024-05-23 14:46:12 [INFO] 请求来自于127.0.0.1
+2024-05-23 14:46:12 [INFO] 127.0.0.1 - - [23/May/2024 14:46:12] "POST /moco/queryApi HTTP/1.1" 200 -
+2024-05-23 14:46:36 [INFO] 程序入口为:http://10.28.179.81:9090/moco
+2024-05-23 14:46:36 [INFO] None
